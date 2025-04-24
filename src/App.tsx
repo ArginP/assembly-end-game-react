@@ -1,12 +1,13 @@
-import './App.css'
+import './app.scss'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
     <>
-      <h1>
-        Game goes here
-      </h1>
+      <main>
+        <Header />
+      </main>
     </>
   )
 }
