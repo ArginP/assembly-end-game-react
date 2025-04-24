@@ -1,0 +1,56 @@
+@use 'sass:math';
+
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.'
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div.visually-hidden {
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%); /* browsers in the future */
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#root {
+  min-width: 1280px;
+  min-height: 100wh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: #282726;
+}
+
+header {
+  h1.heading {
+    color: #f9f4da;
+    font-size: rem(20);
+    font-weight: 500;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  div.rules {
+    color: #8e8e8e;
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: 1rem;
+    text-align: center;
+  }
+}
