@@ -92,5 +92,24 @@ div.visually-hidden {
         font-weight: 500;
       }
     }
+
+    section.health-bar {
+      @include flexContainer;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: rem(59);
+      width: rem(340);
+      margin: 1rem;
+
+      div.language-point {
+        @include flexContainer;
+        height: rem(25);
+        font-size: rem(12);
+        font-weight: 500;
+        border-radius: rem(4);
+        padding: rem(8);
+        margin: 0 rem(2);
+      }
+    }
   }
 }

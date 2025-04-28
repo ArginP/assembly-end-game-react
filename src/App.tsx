@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import { Header } from './components/Header'
 import { GameStatus } from './components/GameStatus'
+import { HealthBar } from './components/HealthBar'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Header />
         <GameStatus />
+        <HealthBar />
       </main>
     </>
   )
