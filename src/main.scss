@@ -13,6 +13,7 @@
 $beigeColor: #f9f4da;
 $greyColor: #8e8e8e;
 $darkGreyColor: #282726;
+$otherGreyColor: #323232;
 
 @mixin flexContainer {
   display: flex;
@@ -101,7 +102,7 @@ div.visually-hidden {
       width: rem(340);
       margin: 1rem;
 
-      div.language-point {
+      span.language-point {
         @include flexContainer;
         height: rem(25);
         font-size: rem(12);
@@ -109,6 +110,26 @@ div.visually-hidden {
         border-radius: rem(4);
         padding: rem(8);
         margin: 0 rem(2);
+      }
+    }
+
+    section.word-bar {
+      @include flexContainer;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin: 1rem;
+
+      span.letter {
+        @include flexContainer;
+        height: rem(40);
+        width: rem(40);
+        background-color: $otherGreyColor;
+        color: $beigeColor;
+        font-size: rem(18);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: rem(2);
+        border-bottom: solid rem(3) $beigeColor;
       }
     }
   }

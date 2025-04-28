@@ -1,13 +1,16 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import { Header } from './components/Header'
 import { GameStatus } from './components/GameStatus'
 import { HealthBar } from './components/HealthBar'
+import { WordDisplay } from './components/WordDisplay'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
 function App() {
-  // [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
+  // const [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
   // console.log(gameStatusState);
+
+  const [currentWord, setCurrentWord] = useState<string>('react')
 
   return (
     <>
@@ -15,6 +18,9 @@ function App() {
         <Header />
         <GameStatus />
         <HealthBar />
+        <WordDisplay
+          currentWord={currentWord}
+        />
       </main>
     </>
   )
