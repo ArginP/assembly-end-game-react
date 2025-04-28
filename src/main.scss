@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
@@ -6,8 +6,19 @@
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16) + rem;
   } @else {
-    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.'
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.';
   }
+}
+
+$beigeColor: #f9f4da;
+$greyColor: #8e8e8e;
+$darkGreyColor: #282726;
+
+@mixin flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
@@ -30,27 +41,56 @@ div.visually-hidden {
 #root {
   min-width: 1280px;
   min-height: 100wh;
-  display: flex;
-  flex-direction: column;
+  @include flexContainer;
   text-align: center;
-  font-family: 'Hanken Grotesk', sans-serif;
-  background-color: #282726;
-}
+  font-family: "Hanken Grotesk", sans-serif;
+  background-color: $darkGreyColor;
 
-header {
-  h1.heading {
-    color: #f9f4da;
-    font-size: rem(20);
-    font-weight: 500;
-    line-height: 1rem;
-    text-align: center;
-  }
+  main {
+    @include flexContainer;
 
-  div.rules {
-    color: #8e8e8e;
-    font-size: rem(14);
-    font-weight: 500;
-    line-height: 1rem;
-    text-align: center;
+    header {
+      @include flexContainer;
+      height: rem(66);
+      width: rem(352);
+      margin-block: 1rem;
+
+      h1.heading {
+        color: $beigeColor;
+        font-size: rem(20);
+        font-weight: 500;
+        line-height: 1rem;
+        padding-bottom: rem(8);
+        text-align: center;
+      }
+
+      div.rules {
+        color: $greyColor;
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: 1rem;
+        text-align: center;
+      }
+    }
+
+    section.game-status {
+      @include flexContainer;
+      background-color: #10a95b;
+      color: $beigeColor;
+      height: rem(59);
+      width: rem(352);
+      border-radius: rem(4);
+      margin-block: 1rem;
+
+      h2.game-status-heading {
+        font-size: rem(20);
+        font-weight: 500;
+      }
+
+      div.game-status-text {
+        font-size: rem(16);
+        font-weight: 500;
+      }
+    }
   }
 }
