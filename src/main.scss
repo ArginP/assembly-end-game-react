@@ -160,6 +160,15 @@ div.visually-hidden {
         margin: rem(4);
         border: rem(1) solid $whitish;
         border-radius: rem(4);
+        cursor: pointer;
+
+        &:hover {
+          background-color: lighten($yellow, 15%);
+        }
+
+        &:active {
+          background-color: darken($yellow, 15%);
+        }
       }
     }
 
@@ -178,6 +187,7 @@ div.visually-hidden {
         background-color: $blue;
         border: rem(1) solid $whitish;
         border-radius: rem(4);
+        cursor: pointer;
 
         span {
           font-family: 'Hanken Grotesk', sans-serif;
@@ -186,6 +196,14 @@ div.visually-hidden {
           font-weight: 600;
           letter-spacing: rem(1);
           text-transform: uppercase;
+        }
+
+        &:hover {
+          background-color: lighten($blue, 15%);
+        }
+
+        &:active {
+          background-color: darken($blue, 15%);
         }
       }
     }
