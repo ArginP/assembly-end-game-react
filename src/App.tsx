@@ -26,13 +26,19 @@ function App() {
   const [currentWord, setCurrentWord] = useState<string>('реакт')
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
+  const wrongGuesses = guessedLetters.filter(
+    (guessedLetter) => !currentWord.includes(guessedLetter)
+  ).length
+
+  console.log(wrongGuesses)
+
   return (
     <>
       <main>
         <Header />
         <GameStatus />
         <HealthBar />
-        <WordDisplay 
+        <WordDisplay
           currentWord={currentWord}
           guessedLetters={guessedLetters}
         />

@@ -15,7 +15,7 @@ export const WordDisplay = (props: WordDisplayProps) => {
         return (
           <span
             key={uuidv4()}
-            className='letter'
+            className="letter"
           >
             {isRevealed(letter) ? letter : ''}
           </span>
