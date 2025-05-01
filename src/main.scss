@@ -18,7 +18,8 @@ $otherGreyColor: #323232;
 
 $green: #10a95b;
 $yellow: #fcba29;
-$red: ec5d49;
+$red: #ec5d49;
+$blue: #11b5e5;
 $black: #000;
 
 @mixin flexContainer {
@@ -46,9 +47,9 @@ div.visually-hidden {
 }
 
 #root {
-  min-width: rem(500);
-  min-height: 100wh;
   @include flexContainer;
+  min-height: 100vh;
+  min-width: rem(500);
   text-align: center;
   font-family: 'Hanken Grotesk', sans-serif;
   background-color: $darkGreyColor;
@@ -144,12 +145,13 @@ div.visually-hidden {
       flex-direction: row;
       flex-wrap: wrap;
       margin: 1rem;
-      max-width: rem(480);
+      max-width: rem(450);
 
       button.key {
         @include flexContainer;
         height: rem(40);
         width: rem(40);
+        font-family: 'Hanken Grotesk', sans-serif;
         background-color: $yellow;
         color: $black;
         font-size: rem(16);
@@ -158,6 +160,33 @@ div.visually-hidden {
         margin: rem(4);
         border: rem(1) solid $whitish;
         border-radius: rem(4);
+      }
+    }
+
+    section.new-game-btn-container {
+      @include flexContainer;
+      width: rem(228);
+      height: rem(40);
+      margin: 1rem;
+
+      button.new-game-btn {
+        @include flexContainer;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        background-color: $blue;
+        border: rem(1) solid $whitish;
+        border-radius: rem(4);
+
+        span {
+          font-family: 'Hanken Grotesk', sans-serif;
+          color: $black;
+          font-size: rem(16);
+          font-weight: 600;
+          letter-spacing: rem(1);
+          text-transform: uppercase;
+        }
       }
     }
   }

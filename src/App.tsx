@@ -4,6 +4,7 @@ import { GameStatus } from './components/GameStatus'
 import { HealthBar } from './components/HealthBar'
 import { WordDisplay } from './components/WordDisplay'
 import { Keyboard } from './components/Keyboard'
+import { NewGameBtn } from './components/NewGameBtn'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
@@ -21,6 +22,7 @@ function App() {
         <HealthBar />
         <WordDisplay currentWord={currentWord} />
         <Keyboard />
+        <NewGameBtn />
       </main>
     </>
   )
