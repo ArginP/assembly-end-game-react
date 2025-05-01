@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { Header } from './components/Header'
 import { GameStatus } from './components/GameStatus'
 import { HealthBar } from './components/HealthBar'
@@ -8,11 +8,18 @@ import { NewGameBtn } from './components/NewGameBtn'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
+export interface GuessedLettersProps {
+  guessedLetters: Array<string>;
+  setGuessedLetters?: Dispatch<SetStateAction<string[]>>;
+}
+
 function App() {
   // const [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
   // console.log(gameStatusState);
 
   const [currentWord, setCurrentWord] = useState<string>('react')
+  const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
+  console.log(guessedLetters);
 
   return (
     <>
@@ -21,7 +28,10 @@ function App() {
         <GameStatus />
         <HealthBar />
         <WordDisplay currentWord={currentWord} />
-        <Keyboard />
+        <Keyboard
+          guessedLetters={guessedLetters}
+          setGuessedLetters={setGuessedLetters}
+        />
         <NewGameBtn />
       </main>
     </>
