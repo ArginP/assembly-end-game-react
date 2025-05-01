@@ -8,7 +8,12 @@ import { NewGameBtn } from './components/NewGameBtn'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
-export interface GuessedLettersProps {
+export interface WordDisplayProps {
+  currentWord: string
+  guessedLetters: Array<string>
+}
+
+export interface KeyboardProps extends WordDisplayProps {
   currentWord: string
   guessedLetters: Array<string>
   setGuessedLetters?: Dispatch<SetStateAction<string[]>>
@@ -16,11 +21,10 @@ export interface GuessedLettersProps {
 
 function App() {
   // const [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
-  // console.log(gameStatusState);
+  // console.log(gameStatusState)
 
   const [currentWord, setCurrentWord] = useState<string>('реакт')
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
-  console.log(guessedLetters);
 
   return (
     <>
@@ -28,7 +32,10 @@ function App() {
         <Header />
         <GameStatus />
         <HealthBar />
-        <WordDisplay currentWord={currentWord} />
+        <WordDisplay 
+          currentWord={currentWord}
+          guessedLetters={guessedLetters}
+        />
         <Keyboard
           currentWord={currentWord}
           guessedLetters={guessedLetters}

@@ -1,7 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
+import { WordDisplayProps } from '../App'
 
-export const WordDisplay = ({ currentWord }: { currentWord: string }) => {
-  const currentWordArray = currentWord.split('')
+export const WordDisplay = (props: WordDisplayProps) => {
+  const currentWordArray = props.currentWord.split('')
+  const guessedLetters = props.guessedLetters
+
+  function isRevealed(letter: string) {
+    return guessedLetters.includes(letter)
+  }
 
   return (
     <section className="word-bar">
@@ -9,10 +15,9 @@ export const WordDisplay = ({ currentWord }: { currentWord: string }) => {
         return (
           <span
             key={uuidv4()}
-            className="letter"
-            style={{}}
+            className='letter'
           >
-            {letter}
+            {isRevealed(letter) ? letter : ''}
           </span>
         )
       })}

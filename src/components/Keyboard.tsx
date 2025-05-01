@@ -1,7 +1,7 @@
-import { GuessedLettersProps } from '../App'
+import { KeyboardProps } from '../App'
 import clsx from 'clsx'
 
-export const Keyboard = (props: GuessedLettersProps) => {
+export const Keyboard = (props: KeyboardProps) => {
   const alphabet =
     'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я'
   const alphabetArray = alphabet.split(' ')
@@ -15,11 +15,11 @@ export const Keyboard = (props: GuessedLettersProps) => {
   }
 
   function isChosen(letter: string) {
-    return props.guessedLetters.includes(letter) ? true : false
+    return props.guessedLetters.includes(letter)
   }
 
   function isCorrect(letter: string) {
-    return props.currentWord.includes(letter) ? true : false
+    return props.currentWord.includes(letter)
   }
 
   return (

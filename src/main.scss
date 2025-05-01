@@ -53,6 +53,7 @@ div.visually-hidden {
   text-align: center;
   font-family: 'Hanken Grotesk', sans-serif;
   background-color: $darkGreyColor;
+  user-select: none;
 
   main {
     @include flexContainer;
@@ -131,7 +132,7 @@ div.visually-hidden {
         height: rem(40);
         width: rem(40);
         background-color: $otherGreyColor;
-        color: $beigeColor;
+        color: $beigeColor;;
         font-size: rem(18);
         font-weight: 700;
         text-transform: uppercase;
