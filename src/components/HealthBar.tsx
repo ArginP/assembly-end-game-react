@@ -1,4 +1,4 @@
-import { languages } from "../assets/languages";
+import { languages } from '../assets/languages'
 
 export const HealthBar = () => {
   return (
@@ -15,8 +15,8 @@ export const HealthBar = () => {
           >
             {language.name}
           </span>
-        );
+        )
       })}
     </section>
-  );
-};
+  )
+}

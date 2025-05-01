@@ -19,9 +19,7 @@ function App() {
         <Header />
         <GameStatus />
         <HealthBar />
-        <WordDisplay
-          currentWord={currentWord}
-        />
+        <WordDisplay currentWord={currentWord} />
         <Keyboard />
       </main>
     </>

@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const WordDisplay = ({currentWord}) => {
-  // const currentWord = 'react'
+export const WordDisplay = ({ currentWord }: { currentWord: string }) => {
   const currentWordArray = currentWord.split('')
 
   return (
@@ -15,8 +14,8 @@ export const WordDisplay = ({currentWord}) => {
           >
             {letter}
           </span>
-        );
+        )
       })}
     </section>
-  );
-};
+  )
+}
