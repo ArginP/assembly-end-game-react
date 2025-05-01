@@ -10,10 +10,16 @@
   }
 }
 
+$whitish: #d7d7d7;
 $beigeColor: #f9f4da;
 $greyColor: #8e8e8e;
 $darkGreyColor: #282726;
 $otherGreyColor: #323232;
+
+$green: #10a95b;
+$yellow: #fcba29;
+$red: ec5d49;
+$black: #000;
 
 @mixin flexContainer {
   display: flex;
@@ -40,7 +46,7 @@ div.visually-hidden {
 }
 
 #root {
-  min-width: 1280px;
+  min-width: rem(500);
   min-height: 100wh;
   @include flexContainer;
   text-align: center;
@@ -76,7 +82,7 @@ div.visually-hidden {
 
     section.game-status {
       @include flexContainer;
-      background-color: #10a95b;
+      background-color: $green;
       color: $beigeColor;
       height: rem(59);
       width: rem(352);
@@ -130,6 +136,28 @@ div.visually-hidden {
         text-transform: uppercase;
         margin: rem(2);
         border-bottom: solid rem(3) $beigeColor;
+      }
+    }
+
+    section.keyboard {
+      @include flexContainer;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 1rem;
+      max-width: rem(480);
+
+      button.key {
+        @include flexContainer;
+        height: rem(40);
+        width: rem(40);
+        background-color: $yellow;
+        color: $black;
+        font-size: rem(16);
+        font-weight: 500;
+        text-transform: uppercase;
+        margin: rem(4);
+        border: rem(1) solid $whitish;
+        border-radius: rem(4);
       }
     }
   }
