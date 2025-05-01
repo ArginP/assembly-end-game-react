@@ -162,12 +162,28 @@ div.visually-hidden {
         border-radius: rem(4);
         cursor: pointer;
 
+        &.chosen {
+          cursor: default;
+
+          &.correct {
+            background-color: $green;
+          }
+
+          &.wrong {
+            background-color: $red;
+          }
+
+          &:hover {
+            filter: none;
+          }
+        }
+
         &:hover {
-          background-color: lighten($yellow, 15%);
+          filter: brightness(115%);
         }
 
         &:active {
-          background-color: darken($yellow, 15%);
+          filter: brightness(80%);
         }
       }
     }
@@ -199,11 +215,11 @@ div.visually-hidden {
         }
 
         &:hover {
-          background-color: lighten($blue, 15%);
+          filter: brightness(115%);
         }
 
         &:active {
-          background-color: darken($blue, 15%);
+          filter: brightness(80%);
         }
       }
     }

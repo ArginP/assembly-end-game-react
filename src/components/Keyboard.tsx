@@ -1,9 +1,10 @@
 import { GuessedLettersProps } from '../App'
+import clsx from 'clsx'
 
 export const Keyboard = (props: GuessedLettersProps) => {
   const alphabet =
     'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я'
-  const currentWordArray = alphabet.split(' ')
+  const alphabetArray = alphabet.split(' ')
 
   function addGuessedLetter(letter: string) {
     if (props && props.setGuessedLetters) {
@@ -13,14 +14,26 @@ export const Keyboard = (props: GuessedLettersProps) => {
     }
   }
 
+  function isChosen(letter: string) {
+    return props.guessedLetters.includes(letter) ? true : false
+  }
+
+  function isCorrect(letter: string) {
+    return props.currentWord.includes(letter) ? true : false
+  }
+
   return (
     <section className="keyboard">
-      {currentWordArray.map((letter) => {
+      {alphabetArray.map((letter) => {
         return (
           <button
             key={letter}
-            className="key"
-            style={{}}
+            className={clsx(
+              'key',
+              { chosen: isChosen(letter) },
+              isChosen(letter) && { correct: isCorrect(letter) },
+              isChosen(letter) && { wrong: !isCorrect(letter) }
+            )}
             onClick={() => addGuessedLetter(letter)}
           >
             {letter}

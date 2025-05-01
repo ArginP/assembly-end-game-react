@@ -9,15 +9,16 @@ import { NewGameBtn } from './components/NewGameBtn'
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
 export interface GuessedLettersProps {
-  guessedLetters: Array<string>;
-  setGuessedLetters?: Dispatch<SetStateAction<string[]>>;
+  currentWord: string
+  guessedLetters: Array<string>
+  setGuessedLetters?: Dispatch<SetStateAction<string[]>>
 }
 
 function App() {
   // const [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
   // console.log(gameStatusState);
 
-  const [currentWord, setCurrentWord] = useState<string>('react')
+  const [currentWord, setCurrentWord] = useState<string>('реакт')
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
   console.log(guessedLetters);
 
@@ -29,6 +30,7 @@ function App() {
         <HealthBar />
         <WordDisplay currentWord={currentWord} />
         <Keyboard
+          currentWord={currentWord}
           guessedLetters={guessedLetters}
           setGuessedLetters={setGuessedLetters}
         />
