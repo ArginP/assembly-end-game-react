@@ -7,8 +7,6 @@ import { Keyboard } from './components/Keyboard'
 import { NewGameBtn } from './components/NewGameBtn'
 import { languages } from './assets/languages'
 
-export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
-
 export interface WordDisplayProps {
   currentWord: string
   guessedLetters: Array<string>
@@ -20,25 +18,30 @@ export interface KeyboardProps extends WordDisplayProps {
   setGuessedLetters?: Dispatch<SetStateAction<string[]>>
 }
 
-function App() {
-  // const [gameStatusState, setGameStatusState] = useState<GameStatusState>('inProgress')
-  // console.log(gameStatusState)
+export interface GameStatusProps {
+  isGameLost: boolean
+  isGameWon: boolean
+}
 
+function App() {
   const [currentWord, setCurrentWord] = useState<string>('реакт')
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
   const wrongGuesses = guessedLetters.filter(
     (guessedLetter) => !currentWord.includes(guessedLetter)
   ).length
-  const isGameOver = languages.length <= wrongGuesses + 1
-
-  console.log(isGameOver)
+  const isGameLost = languages.length <= wrongGuesses + 1
+  const isGameWon = guessedLetters.length - wrongGuesses >= currentWord.length
+  const isGameOver = isGameLost || isGameWon
 
   return (
     <>
       <main>
         <Header />
-        <GameStatus />
+        <GameStatus
+          isGameLost={isGameLost}
+          isGameWon={isGameWon}
+        />
         <HealthBar wrongGuesses={wrongGuesses} />
         <WordDisplay
           currentWord={currentWord}
