@@ -5,6 +5,7 @@ import { HealthBar } from './components/HealthBar'
 import { WordDisplay } from './components/WordDisplay'
 import { Keyboard } from './components/Keyboard'
 import { NewGameBtn } from './components/NewGameBtn'
+import { languages } from './assets/languages'
 
 export type GameStatusState = 'inProgress' | 'isWon' | 'isLost'
 
@@ -29,8 +30,9 @@ function App() {
   const wrongGuesses = guessedLetters.filter(
     (guessedLetter) => !currentWord.includes(guessedLetter)
   ).length
+  const isGameOver = languages.length <= wrongGuesses + 1
 
-  console.log(wrongGuesses)
+  console.log(isGameOver)
 
   return (
     <>
@@ -47,7 +49,7 @@ function App() {
           guessedLetters={guessedLetters}
           setGuessedLetters={setGuessedLetters}
         />
-        <NewGameBtn />
+        <NewGameBtn isGameOver={isGameOver} />
       </main>
     </>
   )

@@ -1,11 +1,14 @@
-export const NewGameBtn = () => {
-
-
+export const NewGameBtn = (props: { isGameOver: boolean }) => {
   return (
     <section className="new-game-btn-container">
-      <button type="button" className="new-game-btn">
-        <span>Новая игра</span>
-      </button>
+      {props.isGameOver && (
+        <button
+          type="button"
+          className="new-game-btn"
+        >
+          <span>Новая игра</span>
+        </button>
+      )}
     </section>
   )
 }
