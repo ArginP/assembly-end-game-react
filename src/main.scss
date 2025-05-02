@@ -112,12 +112,24 @@ div.visually-hidden {
 
       span.language-point {
         @include flexContainer;
+        position: relative;
         height: rem(25);
         font-size: rem(12);
         font-weight: 500;
-        border-radius: rem(4);
+        border-radius: rem(3);
         padding: rem(8);
         margin: 0 rem(2);
+
+        &.lost::before {
+          @include flexContainer;
+          content: '💀';
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          font-size: 1rem;
+          border-radius: rem(3);
+          background-color: #000000cc;
+        }
       }
     }
 
@@ -132,7 +144,7 @@ div.visually-hidden {
         height: rem(40);
         width: rem(40);
         background-color: $otherGreyColor;
-        color: $beigeColor;;
+        color: $beigeColor;
         font-size: rem(18);
         font-weight: 700;
         text-transform: uppercase;

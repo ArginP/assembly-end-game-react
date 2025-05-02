@@ -37,7 +37,7 @@ function App() {
       <main>
         <Header />
         <GameStatus />
-        <HealthBar />
+        <HealthBar wrongGuesses={wrongGuesses} />
         <WordDisplay
           currentWord={currentWord}
           guessedLetters={guessedLetters}
