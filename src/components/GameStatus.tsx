@@ -7,13 +7,10 @@ export function GameStatus(props: GameStatusProps) {
   const lostLanguageIndex: number =
     props.wrongGuesses > 0 ? props.wrongGuesses - 1 : 0
 
-  const isLostALanguage: boolean =
-    !props.isGameWon && !props.isGameLost && props.wrongGuesses > 0
-
   function headingText(): string {
     if (props.isGameWon) return 'Победа!'
     else if (props.isGameLost) return 'Игра окончена!'
-    else if (isLostALanguage)
+    else if (props.isLastGuessWrong)
       return getFarewellText(languages[lostLanguageIndex].name)
     else return ''
   }
@@ -24,7 +21,7 @@ export function GameStatus(props: GameStatusProps) {
         'game-status',
         { 'game-won': props.isGameWon },
         { 'game-lost': props.isGameLost },
-        { 'a-language-lost': isLostALanguage }
+        { 'a-language-lost': !props.isGameLost && props.isLastGuessWrong }
       )}
     >
       <h2 className="game-status-heading">{headingText()}</h2>

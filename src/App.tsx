@@ -22,6 +22,7 @@ export interface GameStatusProps {
   isGameLost: boolean
   isGameWon: boolean
   wrongGuesses: number
+  isLastGuessWrong: boolean
 }
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
   const isGameLost = languages.length <= wrongGuesses + 1
   const isGameWon = guessedLetters.length - wrongGuesses >= currentWord.length
   const isGameOver = isGameLost || isGameWon
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
+  const isLastGuessWrong =
+    lastGuessedLetter && !currentWord.includes(lastGuessedLetter) ? true : false
 
   return (
     <>
@@ -43,6 +47,7 @@ function App() {
           isGameLost={isGameLost}
           isGameWon={isGameWon}
           wrongGuesses={wrongGuesses}
+          isLastGuessWrong={isLastGuessWrong}
         />
         <HealthBar wrongGuesses={wrongGuesses} />
         <WordDisplay
