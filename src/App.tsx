@@ -21,6 +21,7 @@ export interface KeyboardProps extends WordDisplayProps {
 export interface GameStatusProps {
   isGameLost: boolean
   isGameWon: boolean
+  wrongGuesses: number
 }
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <GameStatus
           isGameLost={isGameLost}
           isGameWon={isGameWon}
+          wrongGuesses={wrongGuesses}
         />
         <HealthBar wrongGuesses={wrongGuesses} />
         <WordDisplay

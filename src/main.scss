@@ -20,6 +20,7 @@ $green: #10a95b;
 $yellow: #fcba29;
 $red: #ec5d49;
 $deepRed: #b11414;
+$purpleColor: #7a5ea7;
 $blue: #11b5e5;
 $black: #000;
 
@@ -90,18 +91,17 @@ div.visually-hidden {
       width: rem(352);
       border-radius: rem(4);
       margin-block: 1rem;
+      color: $beigeColor;
+
+      h2.game-status-heading {
+        display: block;
+        font-size: rem(20);
+        font-weight: 500;
+      }
 
       &.game-won {
         visibility: visible;
         background-color: $green;
-        color: $beigeColor;
-
-        h2.game-status-heading::after {
-          display: block;
-          content: 'Победа!';
-          font-size: rem(20);
-          font-weight: 500;
-        }
 
         div.game-status-text::after {
           content: 'Отличная работа! 🎉';
@@ -113,19 +113,23 @@ div.visually-hidden {
       &.game-lost {
         visibility: visible;
         background-color: $deepRed;
-        color: $beigeColor;
-
-        h2.game-status-heading::after {
-          display: block;
-          content: 'Игра окончена!';
-          font-size: rem(20);
-          font-weight: 500;
-        }
 
         div.game-status-text::after {
           content: 'Пришло время учить Ассемблер 😭';
           font-size: rem(16);
           font-weight: 500;
+        }
+      }
+
+      &.a-language-lost {
+        visibility: visible;
+        border: 1px dashed $otherGreyColor;
+        background-color: $purpleColor;
+
+        h2.game-status-heading {
+          font-style: italic;
+          font-weight: normal;
+          font-size: rem(16);
         }
       }
     }

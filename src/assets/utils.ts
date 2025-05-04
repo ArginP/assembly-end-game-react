@@ -1,4 +1,4 @@
-export function getFarewellText(language) {
+export function getFarewellText(language: string): string {
   const options = [
     `Прощай, ${language}`,
     `Досвидос, ${language}`,
@@ -17,7 +17,7 @@ export function getFarewellText(language) {
     `${language} покинул здание`,
     `Ты был так молод, ${language}`,
     `${language} летит к свету`,
-    `${language}, беспечный ангел дорог`
+    `${language}, беспечный ангел дорог`,
   ]
 
   const randomIndex = Math.floor(Math.random() * options.length)
