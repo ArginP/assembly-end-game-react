@@ -182,6 +182,10 @@ div.visually-hidden {
         text-transform: uppercase;
         margin: rem(2);
         border-bottom: solid rem(3) $beigeColor;
+
+        &.unguessed {
+          color: $deepRed;
+        }
       }
     }
 

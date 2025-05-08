@@ -11,12 +11,12 @@ import { getRandomWord } from './assets/utils'
 export interface WordDisplayProps {
   currentWord: string
   guessedLetters: Array<string>
+  isGameOver: boolean
 }
 
 export interface KeyboardProps extends WordDisplayProps {
   currentWord: string
   guessedLetters: Array<string>
-  isGameOver: boolean
   setGuessedLetters?: Dispatch<SetStateAction<string[]>>
 }
 
@@ -65,6 +65,7 @@ const App: React.FC = () => {
         <WordDisplay
           currentWord={currentWord}
           guessedLetters={guessedLetters}
+          isGameOver={isGameOver}
         />
         <Keyboard
           currentWord={currentWord}

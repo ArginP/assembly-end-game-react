@@ -24,9 +24,12 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
         return (
           <span
             key={uuidv4()}
-            className="letter"
+            className={clsx('letter', {
+              unguessed: isGameOver && !isRevealed(letter),
+            })}
           >
             {isRevealed(letter) ? letter : ''}
+            {!isRevealed(letter) && isGameOver ? letter : ''}
           </span>
         )
       })}
