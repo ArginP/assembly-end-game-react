@@ -1,16 +1,16 @@
-interface NewGameBtnProps {
-  isGameOver: boolean
-  resetGame: () => void
-}
+import { NewGameBtnProps } from '../App'
 
-export const NewGameBtn = (props: NewGameBtnProps) => {
+export const NewGameBtn: React.FC<NewGameBtnProps> = ({
+  isGameOver,
+  resetGame,
+}) => {
   return (
     <section className="new-game-btn-container">
-      {props.isGameOver && (
+      {isGameOver && (
         <button
           type="button"
           className="new-game-btn"
-          onClick={props.resetGame}
+          onClick={resetGame}
         >
           <span>Новая игра</span>
         </button>

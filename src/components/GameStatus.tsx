@@ -3,14 +3,18 @@ import { GameStatusProps } from '../App'
 import { getFarewellText } from '../assets/utils'
 import { languages } from '../assets/languages'
 
-export function GameStatus(props: GameStatusProps) {
-  const lostLanguageIndex: number =
-    props.wrongGuesses > 0 ? props.wrongGuesses - 1 : 0
+export const GameStatus: React.FC<GameStatusProps> = ({
+  wrongGuesses,
+  isGameWon,
+  isGameLost,
+  isLastGuessWrong,
+}) => {
+  const lostLanguageIndex: number = wrongGuesses > 0 ? wrongGuesses - 1 : 0
 
   function headingText(): string {
-    if (props.isGameWon) return 'Победа!'
-    else if (props.isGameLost) return 'Игра окончена!'
-    else if (props.isLastGuessWrong)
+    if (isGameWon) return 'Победа!'
+    else if (isGameLost) return 'Игра окончена!'
+    else if (isLastGuessWrong)
       return getFarewellText(languages[lostLanguageIndex].name)
     else return ''
   }
@@ -19,9 +23,9 @@ export function GameStatus(props: GameStatusProps) {
     <section
       className={clsx(
         'game-status',
-        { 'game-won': props.isGameWon },
-        { 'game-lost': props.isGameLost },
-        { 'a-language-lost': !props.isGameLost && props.isLastGuessWrong }
+        { 'game-won': isGameWon },
+        { 'game-lost': isGameLost },
+        { 'a-language-lost': !isGameLost && isLastGuessWrong }
       )}
       aria-live="polite"
       role="status"

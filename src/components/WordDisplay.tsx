@@ -1,9 +1,14 @@
 import { v4 as uuidv4 } from 'uuid'
 import { WordDisplayProps } from '../App'
+import clsx from 'clsx'
+import React from 'react'
 
-export const WordDisplay = (props: WordDisplayProps) => {
-  const currentWordArray = props.currentWord.split('')
-  const guessedLetters = props.guessedLetters
+export const WordDisplay: React.FC<WordDisplayProps> = ({
+  currentWord,
+  guessedLetters,
+  isGameOver,
+}) => {
+  const currentWordArray = currentWord.split('')
 
   function isRevealed(letter: string) {
     return guessedLetters.includes(letter)

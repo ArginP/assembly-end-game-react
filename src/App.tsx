@@ -27,7 +27,12 @@ export interface GameStatusProps {
   isLastGuessWrong: boolean
 }
 
-function App() {
+export interface NewGameBtnProps {
+  isGameOver: boolean
+  resetGame: () => void
+}
+
+const App: React.FC = () => {
   const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord())
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
