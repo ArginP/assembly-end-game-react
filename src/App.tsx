@@ -6,6 +6,7 @@ import { WordDisplay } from './components/WordDisplay'
 import { Keyboard } from './components/Keyboard'
 import { NewGameBtn } from './components/NewGameBtn'
 import { languages } from './assets/languages'
+import { getRandomWord } from './assets/utils'
 
 export interface WordDisplayProps {
   currentWord: string
@@ -27,7 +28,7 @@ export interface GameStatusProps {
 }
 
 function App() {
-  const [currentWord, setCurrentWord] = useState<string>('реакт')
+  const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord())
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
   const wrongGuesses = guessedLetters.filter(

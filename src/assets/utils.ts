@@ -1,3 +1,10 @@
+import { words } from './words'
+
+export function getRandomWord(): string {
+  const randomIndex = Math.floor(Math.random() * words.length)
+  return words[randomIndex]
+}
+
 export function getFarewellText(language: string): string {
   const options = [
     `Прощай, ${language}`,
