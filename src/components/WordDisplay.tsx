@@ -10,7 +10,11 @@ export const WordDisplay = (props: WordDisplayProps) => {
   }
 
   return (
-    <section className="word-bar">
+    <section
+      className="word-bar"
+      aria-live="polite"
+      role="status"
+    >
       {currentWordArray.map((letter) => {
         return (
           <span

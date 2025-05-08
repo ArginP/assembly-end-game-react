@@ -23,6 +23,8 @@ export function GameStatus(props: GameStatusProps) {
         { 'game-lost': props.isGameLost },
         { 'a-language-lost': !props.isGameLost && props.isLastGuessWrong }
       )}
+      aria-live="polite"
+      role="status"
     >
       <h2 className="game-status-heading">{headingText()}</h2>
       <div className="game-status-text"></div>

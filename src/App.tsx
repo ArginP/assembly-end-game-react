@@ -31,6 +31,11 @@ function App() {
   const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord())
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
+  const resetGame = () => {
+    setGuessedLetters([])
+    setCurrentWord(getRandomWord())
+  }
+
   const wrongGuesses = guessedLetters.filter(
     (guessedLetter) => !currentWord.includes(guessedLetter)
   ).length
@@ -62,7 +67,10 @@ function App() {
           isGameOver={isGameOver}
           setGuessedLetters={setGuessedLetters}
         />
-        <NewGameBtn isGameOver={isGameOver} />
+        <NewGameBtn
+          isGameOver={isGameOver}
+          resetGame={resetGame}
+        />
       </main>
     </>
   )

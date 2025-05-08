@@ -36,6 +36,10 @@ export const Keyboard = (props: KeyboardProps) => {
             )}
             onClick={() => addGuessedLetter(letter)}
             disabled={props.isGameOver}
+            aria-disabled={
+              props.guessedLetters.includes(letter) || props.isGameOver
+            }
+            aria-label={`Letter ${letter}`}
           >
             {letter}
           </button>
