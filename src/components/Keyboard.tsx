@@ -35,6 +35,7 @@ export const Keyboard = (props: KeyboardProps) => {
               isChosen(letter) && { wrong: !isCorrect(letter) }
             )}
             onClick={() => addGuessedLetter(letter)}
+            disabled={props.isGameOver}
           >
             {letter}
           </button>

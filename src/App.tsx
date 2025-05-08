@@ -15,6 +15,7 @@ export interface WordDisplayProps {
 export interface KeyboardProps extends WordDisplayProps {
   currentWord: string
   guessedLetters: Array<string>
+  isGameOver: boolean
   setGuessedLetters?: Dispatch<SetStateAction<string[]>>
 }
 
@@ -57,6 +58,7 @@ function App() {
         <Keyboard
           currentWord={currentWord}
           guessedLetters={guessedLetters}
+          isGameOver={isGameOver}
           setGuessedLetters={setGuessedLetters}
         />
         <NewGameBtn isGameOver={isGameOver} />

@@ -230,6 +230,15 @@ div.visually-hidden {
         &:active {
           filter: brightness(80%);
         }
+
+        &:disabled {
+          filter: brightness(40%);
+
+          &:hover {
+            filter: brightness(40%);
+            cursor: default;
+          }
+        }
       }
     }
 
