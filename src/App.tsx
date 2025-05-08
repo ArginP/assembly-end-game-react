@@ -60,6 +60,14 @@ const App: React.FC = () => {
   return (
     <>
       <main>
+        {isGameWon && (
+          <Confetti
+            width={width}
+            height={height}
+            recycle={false}
+            numberOfPieces={2000}
+          />
+        )}
         <Header />
         <GameStatus
           isGameLost={isGameLost}
@@ -83,12 +91,6 @@ const App: React.FC = () => {
           isGameOver={isGameOver}
           resetGame={resetGame}
         />
-        {isGameWon && (
-          <Confetti
-            width={width}
-            height={height}
-          />
-        )}
       </main>
     </>
   )

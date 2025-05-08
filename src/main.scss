@@ -60,6 +60,11 @@ div.visually-hidden {
   main {
     @include flexContainer;
 
+    canvas {
+      height: 100%;
+      width: 100%;
+    }
+
     header {
       @include flexContainer;
       height: rem(66);
