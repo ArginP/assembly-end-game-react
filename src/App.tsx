@@ -49,7 +49,9 @@ const App: React.FC = () => {
     (guessedLetter) => !currentWord.includes(guessedLetter)
   ).length
   const isGameLost = languages.length <= wrongGuesses + 1
-  const isGameWon = guessedLetters.length - wrongGuesses >= currentWord.length
+  const isGameWon = currentWord
+    .split('')
+    .every((item) => guessedLetters.includes(item))
   const isGameOver = isGameLost || isGameWon
   const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
   const isLastGuessWrong =
