@@ -7,6 +7,8 @@ import { Keyboard } from './components/Keyboard'
 import { NewGameBtn } from './components/NewGameBtn'
 import { languages } from './assets/languages'
 import { getRandomWord } from './assets/utils'
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
 
 export interface WordDisplayProps {
   currentWord: string
@@ -33,6 +35,7 @@ export interface NewGameBtnProps {
 }
 
 const App: React.FC = () => {
+  const { width, height } = useWindowSize()
   const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord())
   const [guessedLetters, setGuessedLetters] = useState<Array<string>>([])
 
@@ -77,6 +80,12 @@ const App: React.FC = () => {
           isGameOver={isGameOver}
           resetGame={resetGame}
         />
+        {isGameWon && (
+          <Confetti
+            width={width}
+            height={height}
+          />
+        )}
       </main>
     </>
   )
