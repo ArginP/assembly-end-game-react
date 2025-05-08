@@ -1,6 +1,7 @@
-import React from 'react'
-import { KeyboardProps } from '../App'
 import clsx from 'clsx'
+import React from 'react'
+
+import { KeyboardProps } from '../App'
 
 export const Keyboard: React.FC<KeyboardProps> = ({
   guessedLetters,

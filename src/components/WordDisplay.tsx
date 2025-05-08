@@ -1,7 +1,8 @@
-import { v4 as uuidv4 } from 'uuid'
-import { WordDisplayProps } from '../App'
 import clsx from 'clsx'
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
+import { WordDisplayProps } from '../App'
 
 export const WordDisplay: React.FC<WordDisplayProps> = ({
   currentWord,

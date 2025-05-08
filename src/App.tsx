@@ -1,14 +1,15 @@
 import { Dispatch, SetStateAction, useState } from 'react'
-import { Header } from './components/Header'
-import { GameStatus } from './components/GameStatus'
-import { HealthBar } from './components/HealthBar'
-import { WordDisplay } from './components/WordDisplay'
-import { Keyboard } from './components/Keyboard'
-import { NewGameBtn } from './components/NewGameBtn'
+import Confetti from 'react-confetti'
+import { useWindowSize } from 'react-use'
+
 import { languages } from './assets/languages'
 import { getRandomWord } from './assets/utils'
-import { useWindowSize } from 'react-use'
-import Confetti from 'react-confetti'
+import { GameStatus } from './components/GameStatus'
+import { Header } from './components/Header'
+import { HealthBar } from './components/HealthBar'
+import { Keyboard } from './components/Keyboard'
+import { NewGameBtn } from './components/NewGameBtn'
+import { WordDisplay } from './components/WordDisplay'
 
 export interface WordDisplayProps {
   currentWord: string

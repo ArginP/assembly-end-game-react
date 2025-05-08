@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+
 import { languages } from '../assets/languages'
 
 export const HealthBar = (props: { wrongGuesses: number }) => {

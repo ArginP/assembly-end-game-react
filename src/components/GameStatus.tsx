@@ -1,7 +1,8 @@
 import clsx from 'clsx'
+
 import { GameStatusProps } from '../App'
-import { getFarewellText } from '../assets/utils'
 import { languages } from '../assets/languages'
+import { getFarewellText } from '../assets/utils'
 
 export const GameStatus: React.FC<GameStatusProps> = ({
   wrongGuesses,
