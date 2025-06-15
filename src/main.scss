@@ -191,6 +191,12 @@ div.visually-hidden {
         &.unguessed {
           color: $deepRed;
         }
+
+        &.long-word {
+          @media (max-width: 400px) {
+            width: rem(32);
+          }
+        }
       }
     }
 

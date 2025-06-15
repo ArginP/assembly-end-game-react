@@ -26,7 +26,8 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
           <span
             key={uuidv4()}
             className={clsx('letter', {
-              unguessed: isGameOver && !isRevealed(letter),
+              'unguessed': isGameOver && !isRevealed(letter),
+              'long-word': currentWordArray.length > 8
             })}
           >
             {isRevealed(letter) ? letter : ''}
