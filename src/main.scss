@@ -51,11 +51,11 @@ div.visually-hidden {
 #root {
   @include flexContainer;
   min-height: 100vh;
-  min-width: rem(500);
   text-align: center;
   font-family: 'Hanken Grotesk', sans-serif;
   background-color: $darkGreyColor;
   user-select: none;
+  overflow: hidden;
 
   main {
     @include flexContainer;
@@ -200,6 +200,10 @@ div.visually-hidden {
       flex-wrap: wrap;
       margin: 1rem;
       max-width: rem(450);
+
+      @media (max-width: 375px) {
+        width: 375px;
+      }
 
       button.key {
         @include flexContainer;
