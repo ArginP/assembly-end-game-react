@@ -60,6 +60,10 @@ div.visually-hidden {
   main {
     @include flexContainer;
 
+    @media (min-width: 900px) {
+      zoom: 1.5;
+    }
+
     canvas {
       height: 100%;
       width: 100%;
